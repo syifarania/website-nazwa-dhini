@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Love dan Tulisan Berjalan</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Menghilangkan scrollbar */
+            background-color: #f0f0f0; /* Latar belakang */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Mengatur tinggi layar */
+            flex-direction: column;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px; /* Ukuran hati */
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            margin-bottom: 20px; /* Jarak antara hati dan tulisan */
+            animation: pulse 1s infinite; /* Animasi berdenyut */
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 100px; /* Ukuran hati */
+            height: 100px;
+            background-color: red;
+            border-radius: 50%; /* Membuat bulatan */
+        }
+
+        .heart::before {
+            top: -50px; /* Posisi bulatan kiri */
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px; /* Posisi bulatan kanan */
+            top: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg); /* Ukuran normal */
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg); /* Ukuran membesar */
+            }
+        }
+
+        .scrolling-text {
+            position: absolute;
+            bottom: 20px; /* Jarak dari bawah */
+            white-space: nowrap; /* Mencegah teks terputus */
+            animation: scroll 10s linear infinite; /* Animasi scroll */
+            font-size: 24px; /* Ukuran font */
+            color: #333; /* Warna teks */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100vw); /* Mulai dari luar layar kanan */
+            }
+            100% {
+                transform: translateX(-100%); /* Bergerak ke kiri */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+    <div class="scrolling-text">❤️ I LOVE TKJ❤️</div>
+</body>
+</html>
